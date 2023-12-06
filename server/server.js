@@ -1,7 +1,5 @@
 const express = require("express");
-const bodyParser = require('body-parser');
 const mysql = require('mysql');
-const fs = require('fs');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -69,7 +67,7 @@ app.get('/table', (req, res) => {
   connnection.query(`SELECT data FROM posts WHERE topic = 'Hi' `,
     function (error, result) {
       if (error) { console.log("getting from table error"); console.log(error); }
-      res.json(result);
+      res.json({ message: ((result)) });
     }
   );
 })
